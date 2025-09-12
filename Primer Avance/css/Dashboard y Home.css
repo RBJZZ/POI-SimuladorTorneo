@@ -1,0 +1,78 @@
+/* Estilos básicos para la pantalla principal (Dashboard) */
+.dashboard-box {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  width: 350px;
+  margin-top: 10px;
+}
+
+h1 {
+  text-align: center;
+  color: #007bff;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.nav-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 22%;
+}
+
+.nav-btn:hover {
+  background-color: #0056b3;
+}
+
+.chat-list {
+  margin-top: 20px;
+}
+
+.chat-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+}
+
+.chat-status {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.online {
+  background-color: #28a745;
+}
+
+.offline {
+  background-color: #dc3545;
+}
+
+.chat-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-name {
+  font-weight: bold;
+  color: #333;
+}
+
+.chat-type {
+  font-size: 14px;
+  color: #666;
+}

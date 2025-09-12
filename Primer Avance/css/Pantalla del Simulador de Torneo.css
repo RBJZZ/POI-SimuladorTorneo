@@ -1,0 +1,65 @@
+/* Estilos para la pantalla del simulador de torneo */
+.tournament-box {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  width: 350px;
+  margin-top: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #007bff;
+}
+
+.phase-box {
+  margin-top: 20px;
+}
+
+h2 {
+  text-align: center;
+  color: #007bff;
+  margin-bottom: 15px;
+}
+
+.group-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.group-table th, .group-table td {
+  padding: 8px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.group-table th {
+  background-color: #007bff;
+  color: white;
+}
+
+.elimination-phase {
+  margin-top: 15px;
+}
+
+.match {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+}
+
+.team {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+span {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}

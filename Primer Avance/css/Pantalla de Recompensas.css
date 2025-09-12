@@ -1,0 +1,44 @@
+/* Estilos para la pantalla de recompensas */
+.rewards-box {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  width: 350px;
+  margin-top: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #007bff;
+}
+
+.reward-item {
+  display: flex;
+  align-items: center;
+  background-color: #f9f9f9;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+}
+
+.reward-icon {
+  font-size: 30px;
+  margin-right: 15px;
+}
+
+.reward-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.reward-name {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+.reward-description {
+  font-size: 14px;
+  color: #666;
+}

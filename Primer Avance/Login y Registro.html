@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | Copa Mundial 2026 Chat</title>
+  <link rel="stylesheet" href="./Login y Registro.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Caja de Login -->
+    <div class="login-box" id="login-box">
+      <h1>⚽ Copa Mundial 2026 Chat</h1>
+      <form action="#" id="login-form">
+        <div class="textbox">
+          <input type="email" placeholder="Correo electrónico" required>
+        </div>
+        <div class="textbox">
+          <input type="password" placeholder="Contraseña" required>
+        </div>
+        <div class="buttons">
+          <button type="submit" class="btn-login">Iniciar Sesión</button>
+          <button type="button" class="btn-register" onclick="showRegister()">Registrar</button>
+        </div>
+      </form>
+      <div class="forgot-password">
+        <a href="#">¿Olvidaste tu contraseña?</a>
+      </div>
+    </div>
+
+    <!-- Caja de Registro (inicialmente oculta) -->
+    <div class="login-box" id="register-box" style="display: none;">
+      <h1>⚽ Registro Copa Mundial 2026</h1>
+      <form action="#" id="register-form">
+        <div class="textbox">
+          <input type="text" placeholder="Nombre completo" required>
+        </div>
+        <div class="textbox">
+          <input type="email" placeholder="Correo electrónico" required>
+        </div>
+        <div class="textbox">
+          <input type="password" placeholder="Contraseña" required>
+        </div>
+        <div class="textbox">
+          <input type="password" placeholder="Confirmar Contraseña" required>
+        </div>
+        <div class="buttons">
+          <button type="submit" class="btn-register">Registrarse</button>
+          <button type="button" class="btn-login" onclick="showLogin()">Volver al Login</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
