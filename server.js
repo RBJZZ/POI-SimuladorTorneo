@@ -12,21 +12,21 @@ app.listen(PORT, () => {
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', (req, res) => {
-  res.render('Dashboard y Home'); 
+  res.render('dashboard'); 
 });
 
 app.get('/chat', (req, res) => {
-  res.render('Pantalla de Chat (Privado y Grupal)'); 
+  res.render('chat'); 
 });
 
 app.get('/tareas', (req, res) => {
-  res.render('Pantalla de Gestión de Tareas'); 
+  res.render('tareas'); 
 });
 
 app.get('/recompensas', (req, res) => {
-  res.render('Pantalla de Recompensas');
+  res.render('recompensas');
 });
 
 app.get('/torneo', (req, res) => {
-  res.render('Pantalla del Simulador de Torneo');
+  res.render('torneo');
 });
