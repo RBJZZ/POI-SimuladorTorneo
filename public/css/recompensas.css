@@ -1,30 +1,39 @@
-/* Estilos para la pantalla de recompensas */
 .rewards-box {
-  background-color: #ffffff;
+  background-color: var(--surface-color);
   padding: 30px;
   border-radius: 8px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
   width: 350px;
   margin-top: 20px;
+  border: 1px solid var(--border-color);
 }
 
-h1 {
+.rewards-box h1 {
   text-align: center;
-  color: #007bff;
+  color: var(--primary-accent);
+  margin-bottom: 25px;
 }
 
 .reward-item {
   display: flex;
   align-items: center;
-  background-color: #f9f9f9;
-  padding: 10px;
+  background-color: var(--background-color);
+  padding: 15px;
   margin-bottom: 15px;
   border-radius: 5px;
+  border: 1px solid var(--border-color);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.reward-item:hover {
+  transform: translateY(-3px); 
+  border-color: var(--primary-accent);
 }
 
 .reward-icon {
   font-size: 30px;
   margin-right: 15px;
+  color: var(--primary-accent); 
 }
 
 .reward-info {
@@ -35,10 +44,10 @@ h1 {
 .reward-name {
   font-size: 16px;
   font-weight: bold;
-  color: #333;
+  color: var(--text-primary); 
 }
 
 .reward-description {
   font-size: 14px;
-  color: #666;
+  color: var(--text-secondary);
 }

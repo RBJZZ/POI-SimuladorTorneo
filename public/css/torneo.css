@@ -1,26 +1,22 @@
 /* Estilos para la pantalla del simulador de torneo */
 .tournament-box {
-  background-color: #ffffff;
+  background-color: var(--surface-color);
   padding: 30px;
   border-radius: 8px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  width: 350px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  width: 400px; 
   margin-top: 20px;
+  border: 1px solid var(--border-color);
 }
 
-h1 {
+.tournament-box h1, .tournament-box h2 {
   text-align: center;
-  color: #007bff;
+  color: var(--primary-accent);
+  margin-bottom: 15px;
 }
 
 .phase-box {
-  margin-top: 20px;
-}
-
-h2 {
-  text-align: center;
-  color: #007bff;
-  margin-bottom: 15px;
+  margin-top: 25px;
 }
 
 .group-table {
@@ -30,36 +26,47 @@ h2 {
 }
 
 .group-table th, .group-table td {
-  padding: 8px;
-  border: 1px solid #ddd;
+  padding: 10px;
+  border: 1px solid var(--border-color);
   text-align: center;
+  color: var(--text-primary);
 }
 
 .group-table th {
-  background-color: #007bff;
-  color: white;
+  background-color: var(--primary-accent);
+  color: #000; 
+  font-weight: bold;
 }
 
 .elimination-phase {
   margin-top: 15px;
 }
 
+.elimination-phase h3 {
+    text-align: center;
+    color: var(--text-secondary);
+    margin-bottom: 15px;
+}
+
 .match {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin: 10px 0;
-  padding: 10px;
-  background-color: #f9f9f9;
+  padding: 15px;
+  background-color: var(--background-color);
+  border: 1px solid var(--border-color);
   border-radius: 5px;
 }
 
 .team {
   font-weight: bold;
   font-size: 16px;
+  color: var(--text-primary);
 }
 
-span {
-  font-size: 18px;
+.match span {
+  font-size: 14px;
   font-weight: bold;
-  color: #333;
+  color: var(--primary-accent);
 }

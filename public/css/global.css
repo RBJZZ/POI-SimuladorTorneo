@@ -1,0 +1,83 @@
+:root {
+  --background-color: #121212; 
+  --surface-color: #1e1e1e;    
+  --primary-accent: #3399ff;
+  --primary-accent-dark: #0077e6;
+  
+  --text-primary: #ffffff;      
+  --text-secondary: #a0a0a0;   
+  --border-color: #2c2c2c;      
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: radial-gradient(circle at top, #212121 0%, var(--background-color) 100%);
+  color: var(--text-primary);
+  padding-top: 80px;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; 
+  padding: 0 20px;
+  background-color: var(--surface-color);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  border-bottom: 1px solid var(--border-color);
+  box-sizing: border-box; 
+}
+
+.nav a {
+  padding: 18px 25px; 
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-weight: bold;
+  font-size: 16px;
+  border-bottom: 3px solid transparent;
+  transition: all 0.3s ease;
+  display: inline-block; 
+}
+
+.nav-links {
+  display: flex;
+}
+
+.nav-links a:hover {
+  background-color: var(--background-color);
+  color: var(--text-primary);
+}
+
+.nav-links a.active {
+  color: var(--primary-accent);
+  border-bottom-color: var(--primary-accent);
+}
+
+.nav-logout a {
+  padding: 8px 15px; 
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  border-bottom: none; 
+}
+
+.nav-logout a:hover {
+  background-color: var(--primary-accent);
+  border-color: var(--primary-accent);
+  color: #000;
+}

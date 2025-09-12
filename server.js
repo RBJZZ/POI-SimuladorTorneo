@@ -12,21 +12,25 @@ app.listen(PORT, () => {
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', (req, res) => {
-  res.render('dashboard'); 
+  res.render('dashboard', { activePage: 'home' }); 
 });
 
 app.get('/chat', (req, res) => {
-  res.render('chat'); 
+  res.render('chat', { activePage: 'chat' }); 
 });
 
 app.get('/tareas', (req, res) => {
-  res.render('tareas'); 
+  res.render('tareas', { activePage: 'tareas' }); 
 });
 
 app.get('/recompensas', (req, res) => {
-  res.render('recompensas');
+  res.render('recompensas', { activePage: 'recompensas' });
 });
 
 app.get('/torneo', (req, res) => {
-  res.render('torneo');
+  res.render('torneo', { activePage: 'torneo' });
+});
+
+app.get('/login', (req, res) => {
+  res.render('login');
 });

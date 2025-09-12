@@ -1,34 +1,18 @@
 /* Estilos básicos para la pantalla de login */
-body {
-  font-family: 'Arial', sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f4f4f4;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-}
-
 .login-box {
-  background-color: #ffffff;
-  padding: 30px;
+  background-color: var(--surface-color);
+  padding: 40px; /* Un poco más de espacio */
   border-radius: 8px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  width: 300px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+  width: 320px;
   margin-top: 10px;
+  border: 1px solid var(--border-color); /* Borde sutil */
 }
 
-h1 {
+.login-box h1 {
   text-align: center;
-  color: #007bff;
+  color: var(--primary-accent);
+  margin-bottom: 25px; /* Más espacio debajo del título */
 }
 
 .textbox {
@@ -38,74 +22,68 @@ h1 {
 
 .textbox input {
   width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
+  padding: 12px;
+  border: 1px solid var(--border-color);
+  background-color: var(--background-color); /* Fondo oscuro para el input */
+  color: var(--text-primary); /* Texto blanco */
   border-radius: 4px;
   font-size: 16px;
+  box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
+}
+
+.textbox input:focus {
+  outline: none;
+  border-color: var(--primary-accent); /* Resalta el input al seleccionarlo */
 }
 
 .buttons {
   display: flex;
   justify-content: space-between;
+  gap: 10px; /* Espacio entre los botones */
 }
 
 .btn-login,
 .btn-register {
-  width: 48%;
-  padding: 10px;
+  width: 100%;
+  padding: 12px;
   border: none;
   border-radius: 4px;
-  background-color: #007bff;
-  color: white;
+  background-color: var(--primary-accent);
+  color: #000; /* Texto negro para mejor contraste */
   font-size: 16px;
+  font-weight: bold;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .btn-login:hover,
 .btn-register:hover {
-  background-color: #0056b3;
+  background-color: var(--primary-accent-dark);
 }
 
 .forgot-password {
   text-align: center;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 .forgot-password a {
   text-decoration: none;
-  color: #007bff;
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
 }
 
 .forgot-password a:hover {
-  text-decoration: underline;
+  color: var(--primary-accent);
 }
 
-/* Estilos específicos para el formulario de Registro */
 #register-box {
-  display: none; /* Oculto por defecto */
-}
-
-#register-box input {
-  margin-bottom: 15px;
-}
-
-#register-box .buttons {
-  display: flex;
-  justify-content: space-between;
-}
-
-#register-box .btn-register {
-  background-color: #28a745;
-}
-
-#register-box .btn-register:hover {
-  background-color: #218838;
+  display: none;
 }
 
 #register-box .btn-login {
-  background-color: #6c757d;
+  background-color: var(--text-secondary);
 }
 
 #register-box .btn-login:hover {
-  background-color: #5a6268;
+  background-color: var(--text-primary);
 }

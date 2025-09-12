@@ -1,44 +1,56 @@
 /* Estilos para la pantalla de gestión de tareas */
 .task-box {
-  background-color: #ffffff;
+  background-color: var(--surface-color);
   padding: 30px;
   border-radius: 8px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  width: 350px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  width: 380px; /* Un poco más de espacio */
   margin-top: 20px;
+  border: 1px solid var(--border-color);
 }
 
-h1 {
+.task-box h1 {
   text-align: center;
-  color: #007bff;
+  color: var(--primary-accent);
+  margin-bottom: 25px;
 }
 
 .add-task {
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
+  gap: 10px;
 }
 
 .input-task {
   width: 75%;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--border-color);
+  background-color: var(--background-color);
+  color: var(--text-primary);
   border-radius: 4px;
   font-size: 14px;
 }
 
+.input-task:focus {
+  outline: none;
+  border-color: var(--primary-accent);
+}
+
 .btn-add-task {
-  width: 20%;
+  width: 25%;
   padding: 10px;
   border: none;
-  background-color: #007bff;
-  color: white;
+  background-color: var(--primary-accent);
+  color: #000;
+  font-weight: bold;
   border-radius: 4px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .btn-add-task:hover {
-  background-color: #0056b3;
+  background-color: var(--primary-accent-dark);
 }
 
 .task-list {
@@ -50,21 +62,26 @@ h1 {
   display: flex;
   align-items: center;
   margin-bottom: 10px;
-  padding: 8px;
-  background-color: #f9f9f9;
+  padding: 12px;
+  background-color: var(--background-color);
+  border: 1px solid var(--border-color);
   border-radius: 5px;
 }
 
 .task-checkbox {
   margin-right: 10px;
+  /* Estilos para hacer el checkbox más visible */
+  accent-color: var(--primary-accent);
+  width: 18px;
+  height: 18px;
 }
 
 .task-text {
   font-size: 14px;
-  color: #333;
+  color: var(--text-primary);
 }
 
 .task-checkbox:checked + .task-text {
   text-decoration: line-through;
-  color: #28a745;
+  color: var(--text-secondary);
 }

@@ -1,7 +1,12 @@
 <div class="nav">
-  <a href="/" class="nav-btn-link"><button class="nav-btn">Home</button></a>
-  <a href="/chat" class="nav-btn-link"><button class="nav-btn">Chats</button></a>
-  <a href="/tareas" class="nav-btn-link"><button class="nav-btn">Tareas</button></a>
-  <a href="/recompensas" class="nav-btn-link"><button class="nav-btn">Recompensas</button></a>
-  <a href="/torneo" class="nav-btn-link"><button class="nav-btn">Torneo</button></a>
+  <div class="nav-links">
+    <a href="/" class="<%= (activePage === 'home') ? 'active' : '' %>">Home</a>
+    <a href="/chat" class="<%= (activePage === 'chat') ? 'active' : '' %>">Chats</a>
+    <a href="/tareas" class="<%= (activePage === 'tareas') ? 'active' : '' %>">Tareas</a>
+    <a href="/recompensas" class="<%= (activePage === 'recompensas') ? 'active' : '' %>">Recompensas</a>
+    <a href="/torneo" class="<%= (activePage === 'torneo') ? 'active' : '' %>">Torneo</a>
+  </div>
+  <div class="nav-logout">
+    <a href="/login">Cerrar Sesión</a>
+  </div>
 </div>
