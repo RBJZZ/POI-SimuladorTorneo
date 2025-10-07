@@ -1,87 +1,157 @@
-/* Estilos para la pantalla de gestión de tareas */
-.task-box {
-  background-color: var(--surface-color);
-  padding: 30px;
-  border-radius: 8px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-  width: 380px; /* Un poco más de espacio */
-  margin-top: 20px;
-  border: 1px solid var(--border-color);
+/* Estilos para la Pizarra Táctica */
+
+.pizarra-container {
+  width: 100%;
+  max-width: 1100px; /* Más ancho para las dos columnas */
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
 }
 
-.task-box h1 {
+.header {
   text-align: center;
-  color: var(--primary-accent);
-  margin-bottom: 25px;
+  margin-bottom: 10px;
 }
 
-.add-task {
+.header h1 {
+  color: var(--primary-accent);
+  margin-bottom: 5px;
+}
+
+.header h2 {
+  color: var(--text-secondary);
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.pizarra-main {
+  display: flex;
+  gap: 30px;
+  width: 100%;
+}
+
+.columna-jugadas, .columna-plan {
+  flex: 1; /* Cada columna toma el 50% del espacio */
+  display: flex;
+  flex-direction: column;
+}
+
+.columna-jugadas h3, .columna-plan h3 {
+  color: var(--text-primary);
+  margin-bottom: 20px;
+  border-bottom: 2px solid var(--primary-accent);
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.jugadas-list, .plan-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.jugada-card {
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-left: 5px solid var(--border-color); /* Borde lateral para estado */
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.jugada-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.card-header {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 20px;
-  gap: 10px;
+  align-items: center;
 }
 
-.input-task {
-  width: 75%;
-  padding: 10px;
-  border: 1px solid var(--border-color);
-  background-color: var(--background-color);
+.card-header h4 {
+  margin: 0;
+  font-size: 18px;
   color: var(--text-primary);
-  border-radius: 4px;
-  font-size: 14px;
 }
 
-.input-task:focus {
-  outline: none;
-  border-color: var(--primary-accent);
-}
-
-.btn-add-task {
-  width: 25%;
-  padding: 10px;
-  border: none;
+.puntos {
   background-color: var(--primary-accent);
   color: #000;
   font-weight: bold;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.btn-add-task:hover {
-  background-color: var(--primary-accent-dark);
-}
-
-.task-list {
-  max-height: 300px;
-  overflow-y: auto;
-}
-
-.task-item {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
-  padding: 12px;
-  background-color: var(--background-color);
-  border: 1px solid var(--border-color);
-  border-radius: 5px;
-}
-
-.task-checkbox {
-  margin-right: 10px;
-  /* Estilos para hacer el checkbox más visible */
-  accent-color: var(--primary-accent);
-  width: 18px;
-  height: 18px;
-}
-
-.task-text {
+  padding: 4px 10px;
+  border-radius: 12px;
   font-size: 14px;
-  color: var(--text-primary);
 }
 
-.task-checkbox:checked + .task-text {
-  text-decoration: line-through;
+.jugada-card p {
+  margin: 0;
   color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.jugada-tipo {
+  font-size: 12px;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+/* Colores para cada tipo de jugada */
+.tipo-conocimiento { background-color: #3b3b98; color: #fff; }
+.tipo-creativa { background-color: #f39c12; color: #000; }
+.tipo-analisis { background-color: #009432; color: #fff; }
+.tipo-equipo { background-color: #e84393; color: #fff; }
+
+
+.btn-seleccionar {
+  background-color: var(--background-color);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: not-allowed; /* Indica que está deshabilitado */
+}
+
+/* Estilos para el estado de las tareas */
+.status {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.jugada-card.completada {
+  border-left-color: #28a745; /* Verde */
+}
+
+.completada .status {
+  color: #28a745;
+}
+
+.jugada-card.pendiente {
+  border-left-color: #f39c12; /* Naranja */
+}
+
+.pendiente .status {
+  color: #f39c12;
+}
+
+/* Diseño Responsivo para celulares */
+@media (max-width: 768px) {
+  .pizarra-main {
+    flex-direction: column;
+  }
 }

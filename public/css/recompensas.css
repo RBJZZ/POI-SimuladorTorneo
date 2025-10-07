@@ -1,53 +1,159 @@
-.rewards-box {
-  background-color: var(--surface-color);
-  padding: 30px;
-  border-radius: 8px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-  width: 350px;
-  margin-top: 20px;
-  border: 1px solid var(--border-color);
+/* Estilos para el Salón de la Fama */
+
+.rewards-container {
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
 
-.rewards-box h1 {
+.header {
   text-align: center;
-  color: var(--primary-accent);
-  margin-bottom: 25px;
+  margin-bottom: 10px;
 }
 
-.reward-item {
+.header h1 {
+  color: var(--primary-accent);
+  margin-bottom: 5px;
+}
+
+.header p {
+  color: var(--text-secondary);
+  font-size: 16px;
+}
+
+.card {
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card h2 {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 25px;
+  color: var(--text-primary);
+}
+
+/* Estilos del Catálogo de Insignias */
+.badges-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 20px;
+}
+
+.badge-item {
+  background-color: var(--background-color);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+  cursor: help; /* Cambia el cursor para indicar que hay un tooltip */
+}
+
+.badge-icon { font-size: 40px; }
+.badge-name {
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--text-secondary);
+}
+.badge-item.unlocked .badge-name { color: var(--text-primary); }
+.badge-item.locked {
+  filter: grayscale(100%);
+  opacity: 0.5;
+}
+
+/* Contenedor de dos columnas */
+.columns-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+/* Tabla de Clasificación */
+.leaderboard-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.leaderboard-list li {
   display: flex;
   align-items: center;
   background-color: var(--background-color);
-  padding: 15px;
-  margin-bottom: 15px;
-  border-radius: 5px;
-  border: 1px solid var(--border-color);
-  transition: transform 0.3s ease, border-color 0.3s ease;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 16px;
 }
 
-.reward-item:hover {
-  transform: translateY(-3px); 
-  border-color: var(--primary-accent);
+.leaderboard-list li:first-child {
+  background-color: rgba(255, 215, 0, 0.1);
+  border: 1px solid #ffd700;
 }
 
-.reward-icon {
-  font-size: 30px;
+.leaderboard-list img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
   margin-right: 15px;
-  color: var(--primary-accent); 
 }
 
-.reward-info {
+.player-name {
+  flex-grow: 1;
+  font-weight: bold;
+}
+
+.player-score {
+  color: var(--primary-accent);
+  font-weight: bold;
+}
+
+/* Actividad Reciente */
+.activity-feed {
+  list-style: none;
+  padding: 0;
+  margin: 0;
   display: flex;
   flex-direction: column;
+  gap: 20px;
 }
 
-.reward-name {
-  font-size: 16px;
-  font-weight: bold;
-  color: var(--text-primary); 
+.activity-feed li {
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--border-color);
+}
+.activity-feed li:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
 }
 
-.reward-description {
+.activity-feed p {
+  margin: 0 0 5px 0;
+  color: var(--text-primary);
   font-size: 14px;
+}
+.activity-feed p strong {
+  color: var(--primary-accent);
+}
+
+.timestamp {
+  font-size: 12px;
   color: var(--text-secondary);
+}
+
+/* Diseño Responsivo */
+@media (max-width: 768px) {
+  .columns-container {
+    grid-template-columns: 1fr;
+  }
 }

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Simulador de Torneo | Copa Mundial 2026</title>
+  <title>Torneo | Copa Mundial 2026</title>
   <link rel="stylesheet" href="/css/global.css">
   <link rel="stylesheet" href="/css/torneo.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,74 +12,190 @@
 </head>
 <body>
   <div class="container">
+    
     <%- include('partials/navbar') %>
-    <div class="tournament-box">
-      <h1>Simulador Copa Mundial 2026</h1>
-      
-      <!-- Fase de Grupos -->
-      <div class="phase-box">
-        <h2>Fase de Grupos</h2>
-        <table class="group-table">
+    
+    <div class="tournament-container">
+      <div class="header">
+        <h1>Simulador Copa Mundial 2026</h1>
+        <p>Sigue el progreso de tu equipo y el de tus rivales.</p>
+      </div>
+
+      <div class="tabs">
+        <button class="tab-link active" onclick="openTab(event, 'grupos')">Fase de Grupos</button>
+        <button class="tab-link" onclick="openTab(event, 'eliminatorias')">Eliminatorias</button>
+        <button class="tab-link" onclick="openTab(event, 'resultados')">Mis Resultados</button>
+        <button class="tab-link" onclick="openTab(event, 'galeria')">Galería de la Jornada</button>
+      </div>
+
+      <div id="grupos" class="tab-content" style="display: block;">
+        <h2>Tabla de Posiciones - Grupo A</h2>
+        <table class="standings-table">
           <thead>
             <tr>
-              <th>Equipo</th>
-              <th>Pts</th>
+              <th>Pos</th>
+              <th class="team-name-header">Equipo</th>
+              <th>PJ</th>
               <th>G</th>
               <th>E</th>
               <th>P</th>
+              <th>Pts</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>México</td>
+            <tr class="highlight-team"> <td>1</td>
+              <td class="team-name"><img src="https://flagcdn.com/w40/mx.png" alt="Bandera de México"> México</td>
+              <td>2</td>
+              <td>2</td>
+              <td>0</td>
+              <td>0</td>
               <td>6</td>
+            </tr>
+            <tr>
               <td>2</td>
+              <td class="team-name"><img src="https://flagcdn.com/w40/de.png" alt="Bandera de Alemania"> Alemania</td>
+              <td>2</td>
+              <td>1</td>
               <td>0</td>
               <td>1</td>
-            </tr>
-            <tr>
-              <td>Canadá</td>
-              <td>4</td>
-              <td>1</td>
-              <td>1</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <td>Alemania</td>
-              <td>9</td>
               <td>3</td>
-              <td>0</td>
-              <td>0</td>
             </tr>
             <tr>
-              <td>Japón</td>
+              <td>3</td>
+              <td class="team-name"><img src="https://flagcdn.com/w40/ca.png" alt="Bandera de Canadá"> Canadá</td>
+              <td>2</td>
               <td>1</td>
               <td>0</td>
               <td>1</td>
+              <td>3</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td class="team-name"><img src="https://flagcdn.com/w40/jp.png" alt="Bandera de Japón"> Japón</td>
               <td>2</td>
+              <td>0</td>
+              <td>0</td>
+              <td>2</td>
+              <td>0</td>
             </tr>
           </tbody>
         </table>
       </div>
 
-      <!-- Eliminatorias -->
-      <div class="phase-box">
-        <h2>Eliminatorias</h2>
-        <div class="elimination-phase">
-          <h3>Octavos de Final</h3>
-          <div class="match">
-            <div class="team">México</div>
-            <span>vs</span>
-            <div class="team">Canadá</div>
+      <div id="eliminatorias" class="tab-content">
+        <h2>Bracket de Eliminatorias</h2>
+        <div class="bracket">
+          <div class="round">
+            <div class="round-title">Octavos de Final</div>
+            <div class="match">
+              <div class="team winner"><span>1A</span> Alemania</div>
+              <div class="team"><span>2B</span> Brasil</div>
+            </div>
+            <div class="match">
+              <div class="team"><span>1C</span> Argentina</div>
+              <div class="team winner"><span>2D</span> Francia</div>
+            </div>
+            </div>
+          <div class="round">
+            <div class="round-title">Cuartos de Final</div>
+            <div class="match">
+              <div class="team winner">Alemania</div>
+              <div class="team">Francia</div>
+            </div>
+            </div>
+          <div class="round">
+            <div class="round-title">Semifinal</div>
+             <div class="match">
+              <div class="team">Alemania</div>
+              <div class="team">...</div>
+            </div>
+            </div>
+        </div>
+      </div>
+
+      <div id="resultados" class="tab-content">
+        <h2>Historial de Partidos</h2>
+        <div class="results-list">
+          <div class="result-item win">
+            <span class="round-name">Jornada 2</span>
+            <div class="match-recap">
+              <span class="team-recap">México</span>
+              <span class="score">350 - 280</span>
+              <span class="team-recap">Alemania</span>
+            </div>
+            <span class="result-tag">Victoria</span>
           </div>
-          <div class="match">
-            <div class="team">Alemania</div>
-            <span>vs</span>
-            <div class="team">Japón</div>
+           <div class="result-item win">
+            <span class="round-name">Jornada 1</span>
+            <div class="match-recap">
+              <span class="team-recap">México</span>
+              <span class="score">400 - 310</span>
+              <span class="team-recap">Japón</span>
+            </div>
+            <span class="result-tag">Victoria</span>
+          </div>
+          <div class="result-item loss">
+            <span class="round-name">Amistoso</span>
+            <div class="match-recap">
+              <span class="team-recap">México</span>
+              <span class="score">150 - 200</span>
+              <span class="team-recap">Canadá</span>
+            </div>
+            <span class="result-tag">Derrota</span>
           </div>
         </div>
       </div>
+
+      <div id="galeria" class="tab-content">
+        <h2>Duelo Creativo: Votación Semanal</h2>
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img src="https://littleleapling.com/wp-content/uploads/sites/17281/2025/03/collantez-mural.jpg" alt="Banner del equipo México">
+            <div class="gallery-info">
+              <div class="team-info">
+                <img src="https://flagcdn.com/w40/mx.png" alt="Bandera de México" class="team-flag">
+                <span>Equipo México</span>
+              </div>
+              <div class="vote-section">
+                <button class="btn-vote">Votar</button>
+                <span class="vote-count">12 Votos</span>
+              </div>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img src="https://d3rf6j5nx5r04a.cloudfront.net/G63PiOxyaOeuDUDegB5pAeA8zgA=/2000x1000/blog/f/2/1/f219f1405f8e431cab45f72b7ca5b7e5.jpg" alt="Banner del equipo Canadá">
+            <div class="gallery-info">
+              <div class="team-info">
+                <img src="https://flagcdn.com/w40/ca.png" alt="Bandera de Canadá" class="team-flag">
+                <span>Equipo Canadá</span>
+              </div>
+              <div class="vote-section">
+                <button class="btn-vote">Votar</button>
+                <span class="vote-count">8 Votos</span>
+              </div>
+            </div>
+          </div>
+          </div>
+      </div>
+
+
     </div>
   </div>
+
+  <script>
+    function openTab(evt, tabName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tab-content");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tab-link");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      document.getElementById(tabName).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+  </script>
 </body>
 </html>

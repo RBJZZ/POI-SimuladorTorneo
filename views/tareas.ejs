@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gestión de Tareas | Copa Mundial 2026 Chat</title>
+  <title>Pizarra Táctica | Copa Mundial 2026</title>
   <link rel="stylesheet" href="/css/global.css">
   <link rel="stylesheet" href="/css/tareas.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,29 +12,84 @@
 </head>
 <body>
   <div class="container">
+    
     <%- include('partials/navbar') %>
-    <div class="task-box">
-      <h1>Gestión de Tareas del Grupo A</h1>
-      
-      <!-- Campo para agregar tarea -->
-      <div class="add-task">
-        <input type="text" placeholder="Nueva tarea..." class="input-task">
-        <button class="btn-add-task">Agregar Tarea</button>
+    
+    <div class="pizarra-container">
+      <div class="header">
+        <h1>Pizarra Táctica del Equipo</h1>
+        <h2>Jornada 2: vs. Canadá</h2>
       </div>
-      
-      <!-- Lista de tareas -->
-      <div class="task-list">
-        <div class="task-item">
-          <input type="checkbox" class="task-checkbox" checked>
-          <span class="task-text">Investigar equipos clasificados</span>
+
+      <div class="pizarra-main">
+        <div class="columna-jugadas">
+          <h3>Jugadas Disponibles</h3>
+          <div class="jugadas-list">
+            <div class="jugada-card">
+              <div class="card-header">
+                <h4>Trivia del Rival</h4>
+                <span class="puntos">100 Pts</span>
+              </div>
+              <p>Responde una pregunta difícil sobre la historia de la selección de Canadá.</p>
+              <div class="card-footer">
+                <span class="jugada-tipo tipo-conocimiento">Conocimiento</span>
+                <button class="btn-seleccionar" disabled>Seleccionar</button>
+              </div>
+            </div>
+
+            <div class="jugada-card">
+              <div class="card-header">
+                <h4>Duelo Creativo: Banner Semanal</h4>
+                <span class="puntos">+150 Pts Bono</span>
+              </div>
+              <p>Diseña un banner, súbelo al chat y compite en la "Galería de la Jornada" por el voto de la comunidad para ganar un bono masivo de puntos.</p>
+              <div class="card-footer">
+                <span class="jugada-tipo tipo-creativa">Creativa</span>
+                <span class="status">Pendiente ⏳</span>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="task-item">
-          <input type="checkbox" class="task-checkbox">
-          <span class="task-text">Diseñar interfaz de usuario</span>
-        </div>
-        <div class="task-item">
-          <input type="checkbox" class="task-checkbox">
-          <span class="task-text">Establecer reglas del torneo</span>
+
+        <div class="columna-plan">
+          <h3>Nuestro Plan de Partido</h3>
+          <div class="plan-list">
+            <div class="jugada-card completada">
+              <div class="card-header">
+                <h4>Diseñar el Tifo Semanal</h4>
+                <span class="puntos">75 Pts</span>
+              </div>
+              <p>Crear un banner o imagen de apoyo para el equipo y subirlo al chat.</p>
+              <div class="card-footer">
+                <span class="jugada-tipo tipo-creativa">Creativa</span>
+                <span class="status">Completada ✅</span>
+              </div>
+            </div>
+
+            <div class="jugada-card pendiente">
+              <div class="card-header">
+                <h4>Desafío de Estrategia: Predecir MVP</h4>
+                <span class="puntos">+100 Pts Bono</span>
+              </div>
+              <p>Analiza al equipo rival y envía en secreto tu predicción de quién será su jugador más valioso. Si aciertas, tu equipo gana un bono de puntos.</p>
+              <div class="card-footer">
+                <span class="jugada-tipo tipo-analisis">Análisis</span>
+                <span class="status">Pendiente ⏳</span>
+              </div>
+            </div>
+            
+             <div class="jugada-card pendiente">
+              <div class="card-header">
+                <h4>Trivia Histórica</h4>
+                <span class="puntos">100 Pts</span>
+              </div>
+              <p>¿Qué país fue el primer anfitrión de la Copa del Mundo en 1930?</p>
+              <div class="card-footer">
+                <span class="jugada-tipo tipo-conocimiento">Conocimiento</span>
+                <span class="status">Pendiente ⏳</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

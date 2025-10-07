@@ -3,42 +3,161 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chat | Copa Mundial 2026 Chat</title>
+  <title>Chat | Copa Mundial 2026</title>
   <link rel="stylesheet" href="/css/global.css">
   <link rel="stylesheet" href="/css/chat.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-  <div class="container">
+  <div class="container full-height">
     <%- include('partials/navbar') %>
-    <div class="chat-box">
-      <h1>Chat con Juan 🟢</h1>
-      
-      <!-- Opciones de chat (solo en privado) -->
-      <div class="chat-options">
-        <button class="btn-chat-option">Videollamada</button>
-        <button class="btn-chat-option">Cifrar Mensajes</button>
-        <button class="btn-chat-option">Compartir Archivos</button>
-      </div>
-      
-      <!-- Área de mensajes -->
-      <div class="message-area">
-        <div class="message-item sent">
-          <div class="message-content">¡Hola, Juan! ¿Listo para el torneo?</div>
+
+    <div class="chat-container">
+      <aside class="chat-sidebar">
+        <div class="sidebar-header">
+          <h3>Chats</h3>
+          <button id="open-modal-btn" class="add-chat-btn">
+            <i class="material-icons">add</i>
+          </button>
         </div>
-        <div class="message-item received">
-          <div class="message-content">¡Sí! ¿Cómo va todo?</div>
+        <input type="text" placeholder="Buscar chat..." class="search-bar">
+        <div class="conversation-list">
+          <div class="conversation-item active">
+            <img src="https://media.istockphoto.com/id/889963436/photo/gray-british-shorthair-cats-indoors.jpg?s=170667a&w=0&k=20&c=s_VpAf2B79F1FJ7r-bssXJtqRy3e8fe3M3ykg1dG9n4=" alt="Avatar" class="avatar">
+            <div class="conv-details">
+              <div class="conv-name">David Aguilar</div>
+              <div class="conv-last-message">Escribiendo...</div>
+            </div>
+            <div class="conv-meta">
+              <div class="conv-timestamp">11:32 AM</div>
+              <span class="unread-badge">1</span>
+            </div>
+          </div>
+          <div class="conversation-item">
+            <img src="https://conecta.tec.mx/sites/default/files/styles/header_full/public/2022-02/historia-y-curiosidades-de-la-bandera-de-mexico.webp?itok=ql5LPI54" alt="Avatar" class="avatar">
+            <div class="conv-details">
+              <div class="conv-name">Team México 🌮</div>
+              <div class="conv-last-message">David: Holaa,,</div>
+            </div>
+            <div class="conv-meta">
+              <div class="conv-timestamp">Ayer</div>
+            </div>
+          </div>
+          </div>
+      </aside>
+
+      <main class="chat-main">
+        <header class="chat-header">
+          <img src="https://media.istockphoto.com/id/889963436/photo/gray-british-shorthair-cats-indoors.jpg?s=170667a&w=0&k=20&c=s_VpAf2B79F1FJ7r-bssXJtqRy3e8fe3M3ykg1dG9n4=" alt="Avatar" class="avatar">
+          <div class="chat-partner-info">
+            <h2>David Aguilar</h2>
+            <span class="status online">En línea</span>
+          </div>
+          <div class="chat-actions">
+            <i class="material-icons">videocam</i>
+            <i class="material-icons">more_vert</i>
+          </div>
+        </header>
+
+        <div class="message-area">
+          <div class="message-item sent">
+            <div class="message-content">
+              <span>¡Hola David! ¿Quieres unirte al equipo de México?</span>
+              <div class="message-meta">
+                <span class="message-timestamp">11:30 AM</span>
+                <i class="material-icons read-receipt">done_all</i>
+              </div>
+            </div>
+          </div>
+          <div class="message-item received">
+            <div class="message-content">
+              <span>Claro, vaa</span>
+               <div class="message-meta">
+                <span class="message-timestamp">11:32 AM</span>
+              </div>
+            </div>
+          </div>
+           <div class="message-item received typing-indicator">
+             <div class="message-content">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+             </div>
+           </div>
+        </div>
+
+        <footer class="chat-input-area">
+          <i class="material-icons">sentiment_satisfied_alt</i>
+          <i class="material-icons">attach_file</i>
+          <input type="text" placeholder="Escribe un mensaje..." class="input-message">
+          <button class="btn-send"><i class="material-icons">send</i></button>
+        </footer>
+      </main>
+
+      <div id="create-group-modal" class="modal-overlay">
+        <div class="modal-content">
+          <header class="modal-header">
+            <h2>Crear Nuevo Grupo</h2>
+            <button id="close-modal-btn" class="close-btn">&times;</button>
+          </header>
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="group-name">Nombre del Grupo</label>
+              <input type="text" id="group-name" placeholder="Ej: Equipo de Estrategia">
+            </div>
+            <div class="form-group">
+              <label>Seleccionar Miembros</label>
+              <div class="user-list">
+                <div class="user-item">
+                  <img src="https://static.vecteezy.com/system/resources/previews/009/292/244/non_2x/default-avatar-icon-of-social-media-user-vector.jpg" alt="Avatar">
+                  <span>USUARIO 1</span>
+                  <input type="checkbox">
+                </div>
+                <div class="user-item">
+                  <img src="https://static.vecteezy.com/system/resources/previews/009/292/244/non_2x/default-avatar-icon-of-social-media-user-vector.jpg" alt="Avatar">
+                  <span>USUARIO 2</span>
+                  <input type="checkbox">
+                </div>
+                <div class="user-item">
+                  <img src="https://static.vecteezy.com/system/resources/previews/009/292/244/non_2x/default-avatar-icon-of-social-media-user-vector.jpg" alt="Avatar">
+                  <span>USUARIO 3</span>
+                  <input type="checkbox">
+                </div>
+              </div>
+            </div>
+          </div>
+          <footer class="modal-footer">
+            <button class="btn-secondary">Cancelar</button>
+            <button class="btn-primary">Crear Grupo</button>
+          </footer>
         </div>
       </div>
-      
-      <!-- Campo para escribir mensaje -->
-      <div class="send-message">
-        <input type="text" placeholder="Escribe un mensaje..." class="input-message">
-        <button class="btn-send">Enviar</button>
-      </div>
+
     </div>
   </div>
+
+  <script>
+  const modal = document.getElementById('create-group-modal');
+  const openBtn = document.getElementById('open-modal-btn');
+  const closeBtn = document.getElementById('close-modal-btn');
+
+  openBtn.onclick = function() {
+    modal.classList.add('visible');
+  }
+
+  closeBtn.onclick = function() {
+    modal.classList.remove('visible');
+  }
+
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.classList.remove('visible');
+    }
+  }
+</script>
+
 </body>
 </html>

@@ -3,3 +3,7 @@ node_modules
 
 # Ignorar archivos de variables de entorno
 .env
+
+# Ignorar el script de contexto y su salida
+generar_contexto.py
+contexto_completo.txt

@@ -3,41 +3,91 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Recompensas | Copa Mundial 2026 Chat</title>
+  <title>Recompensas | Copa Mundial 2026</title>
   <link rel="stylesheet" href="/css/global.css">
-  <link rel="stylesheet" href="/css/recompensas.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="/css/recompensas.css"> <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="container">
+    
     <%- include('partials/navbar') %>
-    <div class="rewards-box">
-      <h1>Recompensas Obtenidas</h1>
-      
-      <!-- Recompensas -->
-      <div class="reward-item">
-        <div class="reward-icon">🏆</div>
-        <div class="reward-info">
-          <span class="reward-name">Medalla de Participación</span>
-          <span class="reward-description">Por participar activamente en el chat del grupo</span>
+
+    <div class="rewards-container">
+      <div class="header">
+        <h1>Salón de la Fama</h1>
+        <p>Descubre todas las insignias y compite por el primer puesto.</p>
+      </div>
+
+      <div class="card">
+        <h2>Catálogo de Insignias</h2>
+        <div class="badges-grid">
+          <div class="badge-item unlocked" title="Desbloqueada: Acertaste un marcador exacto.">
+            <div class="badge-icon">🎯</div>
+            <span class="badge-name">El Oráculo</span>
+          </div>
+          <div class="badge-item unlocked" title="Desbloqueada: Quedaste primero en tu grupo.">
+            <div class="badge-icon">🥇</div>
+            <span class="badge-name">Rey de Grupos</span>
+          </div>
+          <div class="badge-item locked" title="Bloqueada: Gana el torneo para desbloquear.">
+            <div class="badge-icon">🏆</div>
+            <span class="badge-name">Campeón del Mundo</span>
+          </div>
+          <div class="badge-item unlocked" title="Desbloqueada: Completaste tu primer Plan de Partido.">
+            <div class="badge-icon">✍️</div>
+            <span class="badge-name">Estratega</span>
+          </div>
+          <div class="badge-item locked" title="Bloqueada: Gana un partido en fase de eliminatorias.">
+            <div class="badge-icon">⚔️</div>
+            <span class="badge-name">Mata Gigantes</span>
+          </div>
+          <div class="badge-item locked" title="Bloqueada: ???">
+            <div class="badge-icon">🤫</div>
+            <span class="badge-name">Insignia Secreta</span>
+          </div>
         </div>
       </div>
-      
-      <div class="reward-item">
-        <div class="reward-icon">🎯</div>
-        <div class="reward-info">
-          <span class="reward-name">Objetivo Cumplido</span>
-          <span class="reward-description">Por completar una tarea importante</span>
+
+      <div class="columns-container">
+        <div class="card">
+          <h2>Tabla de Clasificación</h2>
+          <ol class="leaderboard-list">
+            <li>
+              <img src="https://i.pinimg.com/736x/6d/97/21/6d9721dbda7377d69999540ea0a049fc.jpg" alt="Avatar">
+              <span class="player-name">Rebeca Jasso</span>
+              <span class="player-score">1250 Pts</span>
+            </li>
+            <li>
+              <img src="https://media.istockphoto.com/id/889963436/photo/gray-british-shorthair-cats-indoors.jpg?s=170667a&w=0&k=20&c=s_VpAf2B79F1FJ7r-bssXJtqRy3e8fe3M3ykg1dG9n4=" alt="Avatar">
+              <span class="player-name">David Aguilar</span>
+              <span class="player-score">1100 Pts</span>
+            </li>
+            <li>
+              <img src="https://cdn.pixabay.com/photo/2023/02/18/11/00/icon-7797704_640.png" alt="Avatar">
+              <span class="player-name">Eduardo Saucedo</span>
+              <span class="player-score">980 Pts</span>
+            </li>
+          </ol>
         </div>
-      </div>
-      
-      <div class="reward-item">
-        <div class="reward-icon">🥇</div>
-        <div class="reward-info">
-          <span class="reward-name">Ganador del Torneo</span>
-          <span class="reward-description">Por ganar el torneo de la Copa Mundial 2026</span>
+
+        <div class="card">
+          <h2>Actividad Reciente</h2>
+          <ul class="activity-feed">
+            <li>
+              <p><strong>David Aguilar</strong> ha desbloqueado la insignia <strong>"Estratega"</strong>.</p>
+              <span class="timestamp">hace 5 minutos</span>
+            </li>
+            <li>
+              <p><strong>Eduardo Saucedo</strong> ha ganado su partido contra el equipo de Alemania.</p>
+              <span class="timestamp">hace 2 horas</span>
+            </li>
+             <li>
+              <p><strong>Rebeca Jasso</strong> ha desbloqueado la insignia <strong>"Rey de Grupos"</strong>.</p>
+              <span class="timestamp">hace 1 día</span>
+            </li>
+          </ul>
         </div>
       </div>
     </div>

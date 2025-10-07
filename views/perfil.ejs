@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Perfil | Copa Mundial 2026</title>
+  <link rel="stylesheet" href="/css/global.css">
+  <link rel="stylesheet" href="/css/perfil.css"> <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    
+    <%- include('partials/navbar') %>
+
+    <div class="profile-card">
+      <div class="profile-header">
+        <img src="https://i.pinimg.com/736x/6d/97/21/6d9721dbda7377d69999540ea0a049fc.jpg" alt="Avatar del usuario" class="avatar gold-frame">
+        <h1><%= user.username %></h1>
+        <span class="user-role">🏆 Campeona del Torneo 🏆</span>
+      </div>
+
+      <div class="profile-stats">
+        <div class="stat-item">
+          <span class="stat-number">8</span>
+          <span class="stat-label">Partidos Ganados</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">12</span>
+          <span class="stat-label">Planes Completados</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">92%</span>
+          <span class="stat-label">Precisión en Trivias</span>
+        </div>
+      </div>
+
+      <div class="profile-badges">
+        <h2>Insignias Desbloqueadas</h2>
+        <div class="badges-grid">
+          <div class="badge-item unlocked">
+            <div class="badge-icon">🎯</div>
+            <span class="badge-name">El Oráculo</span>
+          </div>
+          <div class="badge-item unlocked">
+            <div class="badge-icon">🥇</div>
+            <span class="badge-name">Rey de Grupos</span>
+          </div>
+          <div class="badge-item unlocked">
+            <div class="badge-icon">✍️</div>
+            <span class="badge-name">Estratega Maestro</span>
+          </div>
+          <div class="badge-item locked">
+            <div class="badge-icon">🔒</div>
+            <span class="badge-name">???</span>
+          </div>
+           <div class="badge-item locked">
+            <div class="badge-icon">🔒</div>
+            <span class="badge-name">???</span>
+          </div>
+          <div class="badge-item locked">
+            <div class="badge-icon">🔒</div>
+            <span class="badge-name">???</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

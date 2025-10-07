@@ -9,6 +9,12 @@
   --border-color: #2c2c2c;      
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
   font-family: 'Poppins', sans-serif;
   margin: 0;

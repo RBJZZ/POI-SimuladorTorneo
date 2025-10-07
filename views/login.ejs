@@ -12,15 +12,14 @@
 </head>
 <body>
   <div class="container">
-    <!-- Caja de Login -->
     <div class="login-box" id="login-box">
       <h1>⚽ Copa Mundial 2026 Chat</h1>
-      <form action="#" id="login-form">
+      <form action="/auth/login" method="post" id="login-form">
         <div class="textbox">
-          <input type="email" placeholder="Correo electrónico" required>
+          <input type="email" placeholder="Correo electrónico" name="email" required>
         </div>
         <div class="textbox">
-          <input type="password" placeholder="Contraseña" required>
+          <input type="password" placeholder="Contraseña" name="password" required>
         </div>
         <div class="buttons">
           <button type="submit" class="btn-login">Iniciar Sesión</button>
@@ -32,21 +31,20 @@
       </div>
     </div>
 
-    <!-- Caja de Registro (inicialmente oculta) -->
     <div class="login-box" id="register-box" style="display: none;">
       <h1>⚽ Registro Copa Mundial 2026</h1>
-      <form action="#" id="register-form">
+      <form action="/auth/register" method="post" id="register-form">
         <div class="textbox">
-          <input type="text" placeholder="Nombre completo" required>
+          <input type="text" placeholder="Nombre completo" name="username" required>
         </div>
         <div class="textbox">
-          <input type="email" placeholder="Correo electrónico" required>
+          <input type="email" placeholder="Correo electrónico" name="email" required>
         </div>
         <div class="textbox">
-          <input type="password" placeholder="Contraseña" required>
+          <input type="password" placeholder="Contraseña" name="password" required>
         </div>
         <div class="textbox">
-          <input type="password" placeholder="Confirmar Contraseña" required>
+          <input type="password" placeholder="Confirmar Contraseña" name="confirmPassword" required>
         </div>
         <div class="buttons">
           <button type="submit" class="btn-register">Registrarse</button>
@@ -56,6 +54,6 @@
     </div>
   </div>
 
-  <script src="/js/Login y Registro.js"></script>
+  <script src="/js/LoginPage.js"></script>
 </body>
 </html>
