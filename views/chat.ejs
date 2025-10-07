@@ -25,76 +25,51 @@
         </div>
         <input type="text" placeholder="Buscar chat..." class="search-bar">
         <div class="conversation-list">
-          <div class="conversation-item active">
-            <img src="https://media.istockphoto.com/id/889963436/photo/gray-british-shorthair-cats-indoors.jpg?s=170667a&w=0&k=20&c=s_VpAf2B79F1FJ7r-bssXJtqRy3e8fe3M3ykg1dG9n4=" alt="Avatar" class="avatar">
-            <div class="conv-details">
-              <div class="conv-name">David Aguilar</div>
-              <div class="conv-last-message">Escribiendo...</div>
-            </div>
-            <div class="conv-meta">
-              <div class="conv-timestamp">11:32 AM</div>
-              <span class="unread-badge">1</span>
-            </div>
-          </div>
-          <div class="conversation-item">
-            <img src="https://conecta.tec.mx/sites/default/files/styles/header_full/public/2022-02/historia-y-curiosidades-de-la-bandera-de-mexico.webp?itok=ql5LPI54" alt="Avatar" class="avatar">
-            <div class="conv-details">
-              <div class="conv-name">Team México 🌮</div>
-              <div class="conv-last-message">David: Holaa,,</div>
-            </div>
-            <div class="conv-meta">
-              <div class="conv-timestamp">Ayer</div>
-            </div>
-          </div>
-          </div>
+          <% if (userGroups && userGroups.length > 0) { %>
+            <% userGroups.forEach(group => { %>
+              <div class="conversation-item" data-group-id="<%= group.id %>">
+                <img src="https://conecta.tec.mx/sites/default/files/styles/header_full/public/2022-02/historia-y-curiosidades-de-la-bandera-de-mexico.webp?itok=ql5LPI54" alt="Avatar de Grupo" class="avatar">
+                <div class="conv-details">
+                  <div class="conv-name"><%= group.name %></div>
+                  <div class="conv-last-message">Aún no hay mensajes.</div>
+                </div>
+                <div class="conv-meta"></div>
+              </div>
+            <% }) %>
+          <% } else { %>
+            <p style="padding: 20px; text-align: center; color: var(--text-secondary);">No perteneces a ningún grupo. ¡Crea uno!</p>
+          <% } %>
+        </div>
       </aside>
 
       <main class="chat-main">
         <header class="chat-header">
-          <img src="https://media.istockphoto.com/id/889963436/photo/gray-british-shorthair-cats-indoors.jpg?s=170667a&w=0&k=20&c=s_VpAf2B79F1FJ7r-bssXJtqRy3e8fe3M3ykg1dG9n4=" alt="Avatar" class="avatar">
+          <img src="" alt="Avatar" class="avatar" style="visibility: hidden;">
           <div class="chat-partner-info">
-            <h2>David Aguilar</h2>
-            <span class="status online">En línea</span>
+            <h2>Selecciona un chat</h2>
+            <span class="status">para comenzar a chatear</span>
           </div>
-          <div class="chat-actions">
-            <i class="material-icons">videocam</i>
-            <i class="material-icons">more_vert</i>
-          </div>
+          <div class="chat-actions"></div>
         </header>
 
         <div class="message-area">
-          <div class="message-item sent">
-            <div class="message-content">
-              <span>¡Hola David! ¿Quieres unirte al equipo de México?</span>
-              <div class="message-meta">
-                <span class="message-timestamp">11:30 AM</span>
-                <i class="material-icons read-receipt">done_all</i>
+
+          <div id="typing-indicator" class="message-item received typing-indicator" style="display: none;">
+              <div class="message-content">
+                  <div class="dot"></div>
+                  <div class="dot"></div>
+                  <div class="dot"></div>
               </div>
-            </div>
           </div>
-          <div class="message-item received">
-            <div class="message-content">
-              <span>Claro, vaa</span>
-               <div class="message-meta">
-                <span class="message-timestamp">11:32 AM</span>
-              </div>
-            </div>
-          </div>
-           <div class="message-item received typing-indicator">
-             <div class="message-content">
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-             </div>
-           </div>
+
         </div>
 
-        <footer class="chat-input-area">
-          <i class="material-icons">sentiment_satisfied_alt</i>
-          <i class="material-icons">attach_file</i>
-          <input type="text" placeholder="Escribe un mensaje..." class="input-message">
-          <button class="btn-send"><i class="material-icons">send</i></button>
-        </footer>
+        <form class="chat-input-area">
+            <i class="material-icons">sentiment_satisfied_alt</i>
+            <i class="material-icons">attach_file</i>
+            <input type="text" placeholder="Escribe un mensaje..." class="input-message">
+            <button type="submit" class="btn-send"><i class="material-icons">send</i></button>
+        </form>
       </main>
 
       <div id="create-group-modal" class="modal-overlay">
@@ -103,61 +78,235 @@
             <h2>Crear Nuevo Grupo</h2>
             <button id="close-modal-btn" class="close-btn">&times;</button>
           </header>
-          <div class="modal-body">
-            <div class="form-group">
-              <label for="group-name">Nombre del Grupo</label>
-              <input type="text" id="group-name" placeholder="Ej: Equipo de Estrategia">
-            </div>
-            <div class="form-group">
-              <label>Seleccionar Miembros</label>
-              <div class="user-list">
-                <div class="user-item">
-                  <img src="https://static.vecteezy.com/system/resources/previews/009/292/244/non_2x/default-avatar-icon-of-social-media-user-vector.jpg" alt="Avatar">
-                  <span>USUARIO 1</span>
-                  <input type="checkbox">
-                </div>
-                <div class="user-item">
-                  <img src="https://static.vecteezy.com/system/resources/previews/009/292/244/non_2x/default-avatar-icon-of-social-media-user-vector.jpg" alt="Avatar">
-                  <span>USUARIO 2</span>
-                  <input type="checkbox">
-                </div>
-                <div class="user-item">
-                  <img src="https://static.vecteezy.com/system/resources/previews/009/292/244/non_2x/default-avatar-icon-of-social-media-user-vector.jpg" alt="Avatar">
-                  <span>USUARIO 3</span>
-                  <input type="checkbox">
+          <form id="create-group-form">
+            <div class="modal-body">
+              <div class="form-group">
+                <label for="group-name">Nombre del Grupo</label>
+                <input type="text" id="group-name" name="groupName" placeholder="Ej: Equipo de Estrategia" required>
+              </div>
+              <div class="form-group">
+                <label>Seleccionar Miembros</label>
+                <div class="user-list" id="modal-user-list">
+                  <% if (allUsers && allUsers.length > 0) { %>
+                    <% allUsers.forEach(user => { %>
+                      <div class="user-item">
+                        <img src="https://static.vecteezy.com/system/resources/previews/009/223/108/non_2x/default-avatar-profile-icon-of-social-media-user-vector.jpg" alt="Avatar">
+                        <span><%= user.username %></span>
+                        <input type="checkbox" name="members" value="<%= user.id %>">
+                      </div>
+                    <% }) %>
+                  <% } else { %>
+                    <p>No hay otros usuarios para agregar.</p>
+                  <% } %>
                 </div>
               </div>
             </div>
-          </div>
-          <footer class="modal-footer">
-            <button class="btn-secondary">Cancelar</button>
-            <button class="btn-primary">Crear Grupo</button>
-          </footer>
+            <footer class="modal-footer">
+              <button type="button" class="btn-secondary" id="cancel-group-btn">Cancelar</button>
+              <button type="submit" class="btn-primary">Crear Grupo</button>
+            </footer>
+          </form>
         </div>
       </div>
-
     </div>
   </div>
 
+  <script src="/socket.io/socket.io.js"></script>
   <script>
-  const modal = document.getElementById('create-group-modal');
-  const openBtn = document.getElementById('open-modal-btn');
-  const closeBtn = document.getElementById('close-modal-btn');
+    // --- 1. SELECCIÓN DE ELEMENTOS Y VARIABLES GLOBALES ---
+    const socket = io();
+    const form = document.querySelector('.chat-input-area');
+    const input = document.querySelector('.input-message');
+    const messagesArea = document.querySelector('.message-area');
+    const conversationItems = document.querySelectorAll('.conversation-item');
+    const chatHeaderName = document.querySelector('.chat-partner-info h2');
+    const chatHeaderAvatar = document.querySelector('.chat-header .avatar');
+    const chatHeaderStatus = document.querySelector('.chat-partner-info .status');
+    const chatHeaderActions = document.querySelector('.chat-actions');
+    const typingIndicator = document.getElementById('typing-indicator');
+    const modal = document.getElementById('create-group-modal');
+    const openBtn = document.getElementById('open-modal-btn');
+    const closeBtn = document.getElementById('close-modal-btn');
+    const createGroupForm = document.getElementById('create-group-form');
+    const cancelBtn = document.getElementById('cancel-group-btn');
 
-  openBtn.onclick = function() {
-    modal.classList.add('visible');
-  }
+    let activeRoomId = null;
+    let typingTimeout = null;
 
-  closeBtn.onclick = function() {
-    modal.classList.remove('visible');
-  }
+    // --- 2. FUNCIÓN AUXILIAR ---
+    function appendMessage(data, scroll = true) {
+        const item = document.createElement('div');
+        // Más adelante puedes comparar data.sender_id para poner la clase 'sent' o 'received'
+        item.classList.add('message-item', 'received');
+        const content = document.createElement('div');
+        content.classList.add('message-content');
 
-  window.onclick = function(event) {
-    if (event.target == modal) {
-      modal.classList.remove('visible');
+        const timestamp = data.timestamp || new Date(data.created_at).toLocaleTimeString('es-MX', {
+            hour: '2-digit', minute: '2-digit'
+        });
+
+        content.innerHTML = `
+            <div style="font-weight: bold; margin-bottom: 5px; color: var(--primary-accent);">${data.username}</div>
+            <span>${data.content}</span>
+            <div class="message-meta" style="text-align: right; margin-top: 5px;">
+                <span class="message-timestamp">${timestamp}</span>
+            </div>
+        `;
+        item.appendChild(content);
+        messagesArea.insertBefore(item, typingIndicator);
+
+        if (scroll) {
+            messagesArea.scrollTop = messagesArea.scrollHeight;
+        }
     }
-  }
-</script>
 
+    // --- 3. LISTENERS DE SOCKET.IO ---
+    socket.on('chat message', (data) => {
+      typingIndicator.style.display = 'none';
+
+      const chatItem = document.querySelector(`.conversation-item[data-group-id="${data.roomId}"]`);
+
+      if (chatItem) {
+          const lastMessageElement = chatItem.querySelector('.conv-last-message');
+          if (lastMessageElement) {
+              lastMessageElement.textContent = `${data.username}: ${data.content}`;
+          }
+      }
+
+      if (data.roomId === activeRoomId) {
+          appendMessage(data);
+      } else {
+          if (chatItem && !chatItem.querySelector('.unread-badge')) {
+              const badge = document.createElement('span');
+              badge.classList.add('unread-badge');
+
+              chatItem.querySelector('.conv-meta').appendChild(badge);
+          }
+      }
+  });
+
+    socket.on('room_history', (history) => {
+        messagesArea.innerHTML = '';
+        messagesArea.appendChild(typingIndicator);
+        
+        if (!history || history.length === 0) {
+            const noMessagesPrompt = document.createElement('div');
+            noMessagesPrompt.style.textAlign = 'center';
+            noMessagesPrompt.style.color = 'var(--text-secondary)';
+            noMessagesPrompt.style.paddingTop = '20px';
+            noMessagesPrompt.textContent = 'Aún no hay mensajes en este chat. ¡Sé el primero!';
+            messagesArea.insertBefore(noMessagesPrompt, typingIndicator);
+        } else {
+            history.forEach(msg => appendMessage(msg, false));
+        }
+        messagesArea.scrollTop = messagesArea.scrollHeight;
+    });
+
+    socket.on('room_status_update', ({ onlineCount, totalMembers }) => {
+        if (chatHeaderStatus && activeRoomId) {
+            chatHeaderStatus.textContent = `${onlineCount} de ${totalMembers} en línea`;
+        }
+    });
+
+    socket.on('user_typing_start', (data) => {
+        if (data.roomId === activeRoomId) {
+            typingIndicator.style.display = 'flex';
+            messagesArea.scrollTop = messagesArea.scrollHeight;
+        }
+    });
+    socket.on('user_typing_stop', (data) => {
+        if (data.roomId === activeRoomId) {
+            typingIndicator.style.display = 'none';
+        }
+    });
+
+    // --- 4. LISTENERS DE LA INTERFAZ ---
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        if (input.value && activeRoomId) {
+            socket.emit('chat message', { content: input.value, roomId: activeRoomId });
+            input.value = '';
+            clearTimeout(typingTimeout);
+            socket.emit('typing_stop', { roomId: activeRoomId });
+        }
+    });
+
+    input.addEventListener('input', () => {
+        if (activeRoomId) {
+            clearTimeout(typingTimeout);
+            socket.emit('typing_start', { roomId: activeRoomId });
+            typingTimeout = setTimeout(() => {
+                socket.emit('typing_stop', { roomId: activeRoomId });
+            }, 1500);
+        }
+    });
+
+    conversationItems.forEach(item => {
+        item.addEventListener('click', () => {
+            const groupId = item.dataset.groupId;
+            if (groupId === activeRoomId) return;
+
+            activeRoomId = groupId;
+            socket.emit('join_room', groupId);
+            socket.emit('request_room_history', groupId);
+
+            conversationItems.forEach(i => i.classList.remove('active'));
+            item.classList.add('active');
+            
+            const badge = item.querySelector('.unread-badge');
+            if (badge) badge.remove();
+            
+            const groupName = item.querySelector('.conv-name').textContent;
+            const groupAvatarSrc = item.querySelector('.avatar').src;
+
+            chatHeaderName.textContent = groupName;
+            chatHeaderAvatar.src = groupAvatarSrc;
+            chatHeaderAvatar.style.visibility = 'visible';
+            
+            chatHeaderActions.innerHTML = `<i class="material-icons">videocam</i><i class="material-icons">more_vert</i>`;
+        });
+    });
+
+    // --- 5. LÓGICA DEL MODAL ---
+    openBtn.onclick = () => modal.classList.add('visible');
+    closeBtn.onclick = () => modal.classList.remove('visible');
+    cancelBtn.onclick = () => modal.classList.remove('visible');
+    window.onclick = (event) => {
+        if (event.target == modal) {
+            modal.classList.remove('visible');
+        }
+    }
+    createGroupForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const groupNameInput = document.getElementById('group-name');
+        const memberCheckboxes = document.querySelectorAll('input[name="members"]:checked');
+        const groupName = groupNameInput.value;
+        const memberIds = Array.from(memberCheckboxes).map(cb => cb.value);
+
+        if (!groupName.trim() || memberIds.length === 0) {
+            alert('Por favor, asigna un nombre al grupo y selecciona al menos un miembro.');
+            return;
+        }
+
+        try {
+            const response = await fetch('/chats/create-group', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ groupName: groupName, members: memberIds }),
+            });
+            const result = await response.json();
+            if (response.ok) {
+                alert('¡Grupo creado exitosamente! Refresca la página para verlo en tu lista.');
+                modal.classList.remove('visible');
+                createGroupForm.reset();
+            } else {
+                alert(`Error: ${result.message}`);
+            }
+        } catch (error) {
+            console.error('Error al crear el grupo:', error);
+            alert('No se pudo conectar con el servidor.');
+        }
+    });
+</script>
 </body>
 </html>
