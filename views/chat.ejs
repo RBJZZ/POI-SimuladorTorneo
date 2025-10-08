@@ -44,6 +44,10 @@
 
       <main class="chat-main">
         <header class="chat-header">
+          <button id="back-to-list-btn" class="back-btn">
+            <i class="material-icons">arrow_back</i>
+          </button>
+          
           <img src="" alt="Avatar" class="avatar" style="visibility: hidden;">
           <div class="chat-partner-info">
             <h2>Selecciona un chat</h2>
@@ -129,6 +133,8 @@
     const closeBtn = document.getElementById('close-modal-btn');
     const createGroupForm = document.getElementById('create-group-form');
     const cancelBtn = document.getElementById('cancel-group-btn');
+    const chatContainer = document.querySelector('.chat-container');
+    const backBtn = document.getElementById('back-to-list-btn');
 
     let activeRoomId = null;
     let typingTimeout = null;
@@ -136,7 +142,6 @@
     // --- 2. FUNCIÓN AUXILIAR ---
     function appendMessage(data, scroll = true) {
         const item = document.createElement('div');
-        // Más adelante puedes comparar data.sender_id para poner la clase 'sent' o 'received'
         item.classList.add('message-item', 'received');
         const content = document.createElement('div');
         content.classList.add('message-content');
@@ -264,7 +269,12 @@
             chatHeaderAvatar.style.visibility = 'visible';
             
             chatHeaderActions.innerHTML = `<i class="material-icons">videocam</i><i class="material-icons">more_vert</i>`;
+            chatContainer.classList.add('chat-view-active');
         });
+    });
+
+    backBtn.addEventListener('click', () => {
+    chatContainer.classList.remove('chat-view-active');
     });
 
     // --- 5. LÓGICA DEL MODAL ---
